@@ -18,3 +18,6 @@ def get_int_input(prompt: str) -> int:
             return int(value)
         except ValueError:
             print("Entrada inválida. Por favor, digite apenas números.")
+
+def get_str_input(prompt: str) -> str:
+    return input(prompt).strip()
