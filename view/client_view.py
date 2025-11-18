@@ -51,7 +51,7 @@ def menu_cliente(usuario_logado):
                 meus_tickets = listar_meus_ingressos(id_cliente)
                 print("\n--- Seus Ingressos ---")
                 for t in meus_tickets:
-                    print(f"Filme: {t[1]} | Data: {t[2]} | Sala: {t[3]} | Assento: {t[4]}")
+                    print(f"Filme: {t[1]} | Classificação: {t[2]} | Data: {t[3]} | Sala: {t[4]} | Assento: {t[5]}")
                 pause()
 
             case 0:

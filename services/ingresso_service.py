@@ -53,7 +53,7 @@ def listar_meus_ingressos(id_cliente):
         conn = criar_conexao()
         cursor = conn.cursor()
         query = """
-        SELECT i.id_ingresso, f.titulo, s.data_hora, sa.numero_sala, i.assento, i.valor
+        SELECT i.id_ingresso, f.titulo, f.classificacao, s.data_hora, sa.numero_sala, i.assento, i.valor
         FROM ingressos i
         JOIN sessoes s ON i.id_sessao = s.id_sessao
         JOIN filmes f ON s.id_filme = f.id_filme
@@ -74,7 +74,7 @@ def listar_todos_ingressos():
         conn = criar_conexao()
         cursor = conn.cursor()
         query = """
-        SELECT i.id_ingresso, c.nome, f.titulo, sa.numero_sala, i.assento
+        SELECT i.id_ingresso, c.nome, f.titulo, f.classificacao, sa.numero_sala, i.assento
         FROM ingressos i
         JOIN clientes c ON i.id_cliente = c.id_cliente
         JOIN sessoes s ON i.id_sessao = s.id_sessao
