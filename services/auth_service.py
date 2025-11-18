@@ -6,7 +6,6 @@ def login_sistema(email, senha):
     
     cursor = conn.cursor()
     try:
-        # CORREÇÃO AQUI: Trocamos 'usuario' por 'email' na consulta
         query = "SELECT * FROM clientes WHERE email = %s AND senha = %s"
         cursor.execute(query, (email, senha))
         

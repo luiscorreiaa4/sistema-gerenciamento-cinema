@@ -23,10 +23,8 @@ def main():
                 usuario_logado = login_sistema(email, senha)
                 
                 if usuario_logado:
-                    # CORREÇÃO: Mudamos de [6] para [5]
                     is_admin = usuario_logado[5] 
                     
-                    # O banco retorna 1 para True e 0 para False
                     if is_admin == 1:
                         menu_admin()
                     else:

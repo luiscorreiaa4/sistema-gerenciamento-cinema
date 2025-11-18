@@ -49,7 +49,6 @@ def vender_ingresso(id_cliente: int, id_sessao: int, assento: str, valor: float)
         if 'conn' in locals(): conn.close()
 
 def listar_meus_ingressos(id_cliente):
-    """Para o cliente comum ver seus tickets com a sala."""
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
@@ -71,7 +70,6 @@ def listar_meus_ingressos(id_cliente):
         if 'conn' in locals(): conn.close()
 
 def listar_todos_ingressos():
-    """Para o admin."""
     try:
         conn = criar_conexao()
         cursor = conn.cursor()

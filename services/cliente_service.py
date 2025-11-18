@@ -33,12 +33,10 @@ def listar_clientes():
         if 'conn' in locals(): conn.close()
 
 def excluir_cliente(id_cliente):
-    """Função nova para o Admin remover um cliente."""
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
         
-        # Tenta excluir pelo ID
         query = "DELETE FROM clientes WHERE id_cliente = %s"
         cursor.execute(query, (id_cliente,))
         conn.commit()
