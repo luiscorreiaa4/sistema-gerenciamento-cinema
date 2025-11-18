@@ -39,7 +39,6 @@ def main():
                 email = input("Email: ")
                 fone = input("Telefone: ")
                 senha = getpass.getpass("Crie sua Senha: ")
-                
                 cadastrar_cliente(nome, email, fone, senha)
                 pause()
 

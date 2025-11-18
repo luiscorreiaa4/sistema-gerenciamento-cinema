@@ -1,10 +1,11 @@
 from config.db import criar_conexao
+from config.crypt import hash_password
 
 def cadastrar_cliente(nome, email, telefone, senha):
     try:
         conn = criar_conexao()
         if conn is None: return
-        
+        senha = hash_password(senha)
         cursor = conn.cursor()
         query = """INSERT INTO clientes (nome, email, telefone, senha, is_admin) 
                    VALUES (%s, %s, %s, %s, 0)"""
