@@ -40,3 +40,23 @@ def listar_sessoes():
     finally:
         if 'cursor' in locals(): cursor.close()
         if 'conn' in locals(): conn.close()
+def listar_sessoes_por_filme(id_filme):
+    try:
+        conn = criar_conexao()
+        if conn is None: return []
+        cursor = conn.cursor()
+        
+        query = """
+        SELECT s.id_sessao, s.data_hora, sa.numero_sala, sa.capacidade
+        FROM sessoes s
+        JOIN salas sa ON s.id_sala = sa.id_sala
+        WHERE s.id_filme = %s
+        """
+        cursor.execute(query, (id_filme,))
+        return cursor.fetchall()
+    except Exception as e:
+        print(f"Erro ao buscar sessões do filme: {e}")
+        return []
+    finally:
+        if 'cursor' in locals(): cursor.close()
+        if 'conn' in locals(): conn.close()

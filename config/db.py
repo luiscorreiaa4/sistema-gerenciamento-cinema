@@ -4,7 +4,7 @@ from mysql.connector import Error
 DB_CONFIG = {
     'database': 'cinema_db',
     'user': 'root',
-    'password': '150904',
+    'password': '156354',
     'host': 'localhost',
     'port': '3306'
 }
