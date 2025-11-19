@@ -4,6 +4,7 @@ from services.filme_service import cadastrar_filme, listar_filmes
 from services.sala_service import cadastrar_sala, listar_salas
 from services.sessao_service import cadastrar_sessao, listar_sessoes
 from services.ingresso_service import vender_ingresso, listar_todos_ingressos
+from utils import get_data_hora_input
 
 def sub_menu_clientes():
     while True:
@@ -111,7 +112,7 @@ def sub_menu_sessoes():
                 print("\n(Dica: Veja os IDs em Listar Filmes/Salas antes)")
                 id_filme = get_int_input("ID do Filme: ")
                 id_sala = get_int_input("ID da Sala: ")
-                data = input("Data e Hora (AAAA-MM-DD HH:MM:SS): ")
+                data = get_data_hora_input()
                 cadastrar_sessao(data, id_filme, id_sala)
                 pause()
             case 2:
