@@ -30,7 +30,6 @@ def verificar_lotacao(id_sessao):
         if 'conn' in locals(): conn.close()
 
 def verificar_assento_ocupado(id_sessao, assento):
-    """Verifica se o assento específico já foi vendido nesta sessão."""
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
@@ -39,18 +38,16 @@ def verificar_assento_ocupado(id_sessao, assento):
         ocupado = cursor.fetchone()[0] > 0
         return ocupado
     except Exception:
-        return True # Na dúvida, diz que está ocupado para evitar erro
+        return True
     finally:
         if 'cursor' in locals(): cursor.close()
         if 'conn' in locals(): conn.close()
 
 def vender_ingresso(id_cliente, id_sessao, assento, valor):
-    # 1. Verifica Lotação Geral
     if verificar_lotacao(id_sessao):
         print("❌ Erro: A sessão está LOTADA!")
         return
 
-    # 2. Verifica Assento Específico
     if verificar_assento_ocupado(id_sessao, assento):
         print(f"❌ Erro: O assento {assento} já está ocupado!")
         return
